@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Webpage</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>About me I guess</h1>
-<img src="https://share.google/Rh6rgDmR0vfzGmDAi" alt="penguin on a computer">
+  <main class="page">
+    <section class="hero">
+      <div class="avatar" aria-label="penguin illustration">
+        <img src="penguin.gif" alt="penguin on a computer">
+      </div>
+      <div class="text">
+        <h1>About Me</h1>
+        <p>I really like learning about ecology and zoology in my spare time, especially the ways animals adapt to their habitats.</p>
+      </div>
+    </section>
 
-    <p>I really like to learn about ecology and zoology in my spare time.</p>
+    <section class="section-grid" aria-label="personal details">
+      <article class="card">
+        <h2>Family Life</h2>
+        <p>I am married to my partner of 5 years. We have a 1-year-old daughter, two furry pets, and one of my three brothers lives with us.</p>
+      </article>
 
-	<h2>Family life</h2>
-	<p>I am married to my partner of 5 years, we have a 1 year old daughter, two fur babies, and one of my three brothers lives with us.</p>
+      <article class="card">
+        <h3>Favorite Foods</h3>
+        <ul>
+          <li>Edamame</li>
+          <li>Sushi</li>
+          <li>A good salad, no matter what is in it</li>
+        </ul>
+      </article>
 
-<h3> Favorite foods</h3>
-<ul>
-	<li>Edamame</li>
-	<li>Sushi</li>
-	<li>a good salad. doesn't matter what's in it.</li>
+      <article class="card">
+        <h3>What I Enjoy</h3>
+        <p>I love quiet afternoons, reading, and discovering new facts about the natural world.</p>
+      </article>
+    </section>
+  </main>
 
- <footer>
-    <p>&copy; 2026 me. All rights reserved.</p>
+  <footer>
+    <p>&copy; 2026 Me. All rights reserved.</p>
   </footer>
 </body>
 </html>
