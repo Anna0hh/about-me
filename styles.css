@@ -51,6 +51,10 @@ body {
   box-shadow: 0 8px 24px rgba(10, 47, 90, 0.2);
 }
 
+.hero h1 {
+  color: white;
+}
+
 .avatar {
   display: none;
 }
@@ -64,18 +68,22 @@ h1, h2, h3 {
 }
 
 .section-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin-top: 1rem;
+  align-items: center;
 }
 
 .card {
   background: linear-gradient(135deg, var(--card), var(--accent-soft));
   border-radius: 16px;
-  padding: 1rem;
+  padding: 1.5rem;
   box-shadow: 0 6px 18px rgba(10, 47, 90, 0.12);
   border: 1px solid rgba(15, 76, 129, 0.12);
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
 }
 
 ul {
@@ -96,17 +104,14 @@ footer {
   }
 
   .hero {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    text-align: center;
   }
 
   .hero .text {
     flex: 1;
-  }
-
-  .section-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
