@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap');
 
 :root {
   color-scheme: light;
-  font-family: 'Quicksand', Arial, sans-serif;
+  font-family: 'Lora', 'Georgia', serif;
   --bg: #f4f8ff;
   --card: #ffffff;
-  --text: #12324a;
-  --accent: #0f4c81;
-  --accent-deep: #0a2f5a;
+  --text: #357652;
+  --accent: #1d432b;
+  --accent-deep: #1c3831;
   --accent-soft: #dceeff;
-  --highlight: #1e6fd6;
+  --highlight: #2a6649;
 }
 
 * {
@@ -58,7 +58,7 @@ body {
 h1, h2, h3 {
   margin: 0 0 0.4rem;
   color: var(--accent);
-  font-family: 'Pacifico', cursive;
+  font-family: 'Playfair Display', 'Georgia', serif;
   letter-spacing: 0.03em;
   text-shadow: 1px 1px 0 rgba(15, 76, 129, 0.15);
 }
