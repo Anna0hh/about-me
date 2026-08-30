@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/JS/javascript.js" defer></script>
 </head>
 <body>
   <main class="page">
     <section class="hero">
-      <div class="avatar" aria-label="penguin illustration">
-        <img src="penguin.gif" alt="penguin on a computer">
-      </div>
       <div class="text">
         <h1>About Me</h1>
         <p>I really like learning about ecology and zoology in my spare time, especially the ways animals adapt to their habitats.</p>
@@ -21,7 +19,7 @@
     <section class="section-grid" aria-label="personal details">
       <article class="card">
         <h2>Family Life</h2>
-        <p>I am married to my partner of 5 years. We have a 1-year-old daughter, two furry pets, and one of my three brothers lives with us.</p>
+        <p>I'm married to my partner of five and we have a one year old daughter. In my free time I enjoy spending time with my family playing Fortnite and doing crafts. I also love learning about zoology and ecology.</p>
       </article>
 
       <article class="card">
@@ -37,8 +35,25 @@
         <h3>What I Enjoy</h3>
         <p>I love quiet afternoons, reading, and discovering new facts about the natural world.</p>
       </article>
+
+      <article class="card">
+        <h3>Style Changer</h3>
+        <button id="style-changer" type="button">Change Style</button>
+      </article>
     </section>
   </main>
+
+  <article class="card todo-card">
+    <div class="todo-header">
+      <h3>To Do List</h3>
+      <span class="todo-badge">Items</span>
+    </div>
+    <div id="todo-list" class="todo-list" aria-live="polite"></div>
+    <div class="todo-input-row">
+      <input type="text" id="new-item" placeholder="Add a new item" aria-label="Add a new to-do item">
+      <button id="add-item-btn" type="button">Add</button>
+    </div>
+  </article>
 
   <footer>
     <p>&copy; 2026 Me. All rights reserved.</p>
