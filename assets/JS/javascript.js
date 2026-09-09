@@ -108,3 +108,148 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+//contact form validation and to update validation to check for empty fields and valid email address on every input change, not just on submit. Add error messages below each field when invalid and remove them when valid. Also, add a success message when the form is submitted successfully.
+
+const form = document.getElementById('contact-form');
+if (form) {
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const subjectInput = document.getElementById('subject');
+  const messageInput = document.getElementById('message');
+
+  const nameError = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+  const subjectError = document.getElementById('subject-error');
+  const messageError = document.getElementById('message-error');
+  const successMessage = document.getElementById('success-message');
+
+  function setError(element, message) {
+    if (!element) return;
+    element.textContent = message;
+  }
+
+  function setInvalidState(input, isInvalid) {
+    if (!input) return;
+    input.classList.toggle('invalid', isInvalid);
+  }
+
+  function validateName() {
+    const value = nameInput.value.trim();
+    const isInvalid = !value;
+
+    setInvalidState(nameInput, isInvalid);
+    setError(nameError, isInvalid ? 'Name is required.' : '');
+    return !isInvalid;
+  }
+
+  function validateEmail() {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const value = emailInput.value.trim();
+    const isInvalid = !value || !emailPattern.test(value);
+
+    setInvalidState(emailInput, isInvalid);
+
+    if (!value) {
+      setError(emailError, 'Email is required.');
+      return false;
+    }
+
+    if (!emailPattern.test(value)) {
+      setError(emailError, 'Please enter a valid email address.');
+      return false;
+    }
+
+    setError(emailError, '');
+    return true;
+  }
+
+  function validateSubject() {
+    const value = subjectInput.value.trim();
+    const isInvalid = !value || value.length < 8;
+
+    setInvalidState(subjectInput, isInvalid);
+
+    if (!value) {
+      setError(subjectError, 'Subject is required.');
+      return false;
+    }
+
+    if (value.length < 8) {
+      setError(subjectError, 'Subject must be at least 8 characters long.');
+      return false;
+    }
+
+    setError(subjectError, '');
+    return true;
+  }
+
+  function validateMessage() {
+    const value = messageInput.value.trim();
+    const isInvalid = !value || value.length < 25;
+
+    setInvalidState(messageInput, isInvalid);
+
+    if (!value) {
+      setError(messageError, 'Message is required.');
+      return false;
+    }
+
+    if (value.length < 25) {
+      setError(messageError, 'Message must be at least 25 characters long.');
+      return false;
+    }
+
+    setError(messageError, '');
+    return true;
+  }
+
+  nameInput.addEventListener('input', () => {
+    successMessage.textContent = '';
+    validateName();
+  });
+
+  emailInput.addEventListener('input', () => {
+    successMessage.textContent = '';
+    validateEmail();
+  });
+
+  subjectInput.addEventListener('input', () => {
+    successMessage.textContent = '';
+    validateSubject();
+  });
+
+  messageInput.addEventListener('input', () => {
+    successMessage.textContent = '';
+    validateMessage();
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const isNameValid = validateName();
+    const isEmailValid = validateEmail();
+    const isSubjectValid = validateSubject();
+    const isMessageValid = validateMessage();
+
+    if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
+      const name = encodeURIComponent(nameInput.value.trim());
+      const email = encodeURIComponent(emailInput.value.trim());
+      const subject = encodeURIComponent(subjectInput.value.trim());
+      const message = encodeURIComponent(messageInput.value.trim());
+
+      const mailtoLink = `mailto:annalytics.dev@gmail.com?subject=${subject}&body=${encodeURIComponent(
+        `Name: ${nameInput.value.trim()}\nEmail: ${emailInput.value.trim()}\n\nMessage:\n${messageInput.value.trim()}`
+      )}`;
+
+      successMessage.textContent = 'Opening your email app...';
+      window.location.href = mailtoLink;
+      form.reset();
+      nameInput.classList.remove('invalid');
+      emailInput.classList.remove('invalid');
+      subjectInput.classList.remove('invalid');
+      messageInput.classList.remove('invalid');
+    }
+  });
+}
+
+
